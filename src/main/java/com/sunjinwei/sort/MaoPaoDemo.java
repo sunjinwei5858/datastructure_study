@@ -30,7 +30,7 @@ public class MaoPaoDemo {
     public static void sort(Integer[] arr) {
         // 外层循环 控制趟数 length-1次
         for (int i = 0; i < arr.length - 1; i++) {
-            // 内层循环 还需要将-i次即可
+            // 内层循环 因为每次都会将最大的数排在最右边 所以第二趟都会比第一趟少一次 第三趟会比第二趟少一次
             for (int j = 0; j < arr.length - 1 - i; j++) {
                 if (handlerMinAndMax(arr[j], arr[j + 1])) {
                     exchangeIndex(arr, j, j + 1);
