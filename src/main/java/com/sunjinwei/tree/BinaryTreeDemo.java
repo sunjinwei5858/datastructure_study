@@ -45,20 +45,30 @@ public class BinaryTreeDemo {
         System.out.println("后序遍历");
         binaryTree.postOrder(); // 2 5 4 3 1
 
-        System.out.println("-----------------------开始进行查找");
+        System.out.println("-----------------------开始前序进行查找");
 
         /**
          * 前序查找结点为 5 的关胜
          */
-        //HeroNode result = binaryTree.preSearch(1);
-        //System.out.println(result);
+        HeroNode result01 = binaryTree.preSearch(5);
+        System.out.println("找到了："+result01);
+
+        System.out.println("=============开始中序进行查找");
 
         /**
          * 中序查找结点为 5 的关胜
          */
-        HeroNode result = binaryTree.middSearch(5);
-        System.out.println(result);
+        HeroNode result02 = binaryTree.middSearch(5);
+        System.out.println("找到了："+result02);
 
+
+        System.out.println("=============开始后序进行查找");
+
+        /**
+         * 后序查找结点为 5 的关胜
+         */
+        HeroNode result03 = binaryTree.afterSearch(5);
+        System.out.println("找到了："+result03);
 
 
     }

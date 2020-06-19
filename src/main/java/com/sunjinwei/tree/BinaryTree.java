@@ -52,7 +52,7 @@ public class BinaryTree {
      * 1 前序遍历查找
      */
     public HeroNode preSearch(Integer no) {
-        if (this.root != null){
+        if (this.root != null) {
             return this.root.preSearch(no);
         }
         return null;
@@ -61,9 +61,19 @@ public class BinaryTree {
     /**
      * 2 中序查找
      */
-    public HeroNode middSearch(Integer no){
-        if (this.root != null){
+    public HeroNode middSearch(Integer no) {
+        if (this.root != null) {
             return this.root.middSerach(no);
+        }
+        return null;
+    }
+
+    /**
+     * 后序查找
+     */
+    public HeroNode afterSearch(Integer no) {
+        if (this.root != null) {
+            return this.root.afterSerach(no);
         }
         return null;
     }

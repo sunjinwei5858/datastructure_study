@@ -70,12 +70,12 @@ public class HeroNode {
         // 先输出父结点
         System.out.println(this);
 
-        // 递归向左子树遍历
+        // 判断父节点的左子节点是否为空,不为空则递归前序遍历
         if (this.left != null) {
             this.left.preOrder();
         }
 
-        // 递归向右子树遍历
+        // 判断父节点的右子节点是否为空,不为空则递归前序遍历
         if (this.right != null) {
             this.right.preOrder();
         }
@@ -86,13 +86,13 @@ public class HeroNode {
      * 左子树->根结点->右子树
      */
     public void middleOrder() {
-        // 递归向左子树中序遍历
+        // 判断当前节点的左子节点是否为空，不为空则递归
         if (this.left != null) {
             this.left.middleOrder();
         }
         // 输出父结点
         System.out.println(this);
-        // 递归向右子树中序遍历
+        // 判断当前节点的右子节点是否为空，不为空则递归
         if (this.right != null) {
             this.right.middleOrder();
         }
@@ -104,15 +104,15 @@ public class HeroNode {
      * 左子树->右子树->根结点
      */
     public void postOrder() {
-        // 递归向左子树中序遍历
+        // 判断当前节点的左子节点不为空，则递归
         if (this.left != null) {
             this.left.postOrder();
         }
-        // 递归向右子树中序遍历
+        // 判断当前节点的右子节点不为空，则递归
         if (this.right != null) {
             this.right.postOrder();
         }
-        // 输出父结点
+        // 最后输出当前节点
         System.out.println(this);
     }
 
@@ -120,15 +120,17 @@ public class HeroNode {
      * 1 前序查询方法编写
      */
     public HeroNode preSearch(int number) {
-        // 直接判断根结点是不是相等
+        System.out.println(this);
+        // 如果当前节点就是要找的节点，则直接返回
         if (this.number == number) {
             return this;
         }
-        // 如果不相等 那么从左子树开始递归查找
         HeroNode result = null;
+        // 如果当前节点的左子节点不为空，则递归查找
         if (this.left != null) {
             result = this.left.preSearch(number);
         }
+        // 如果通过左子节点找到则直接返回
         if (result != null) {
             return result;
         }
@@ -143,14 +145,17 @@ public class HeroNode {
      * 2 中序遍历查找
      */
     public HeroNode middSerach(int no) {
-        // 先判断左子结点是不是为空 如果为空
+        // 如果当前节点的左子节点不为空，则递归查找
         HeroNode result = null;
         if (this.left != null) {
             result = this.left.middSerach(no);
         }
+        // 如果通过左子节点递归已经找到了，则直接返回，不用继续找下去了
         if (result != null) {
             return result;
         }
+        System.out.println(this);
+        // 如果当前节点就是要找的节点，则直接返回
         if (this.number == no) {
             return this;
         }
@@ -165,18 +170,24 @@ public class HeroNode {
      */
     public HeroNode afterSerach(Integer no) {
         HeroNode result = null;
+        // 如果当前节点的左子节点不为空，则递归查找
         if (this.left != null) {
             result = this.left.afterSerach(no);
         }
+        // 如果通过左子节点递归查找已经找到，则直接返回，
         if (result !=null){
             return result;
         }
+        // 如果当前节点的右子节点不为空，则递归查找
         if (this.right != null){
             result = this.right.afterSerach(no);
         }
+        // 如果通过右子节点递归找到，则直接返回
         if (result != null){
             return result;
         }
+        System.out.println(this);
+        // 如果当前节点就是要找的节点，则直接返回
         if (this.number == no){
             return this;
         }
