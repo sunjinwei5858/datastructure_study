@@ -6,6 +6,7 @@ package com.sunjinwei.tree;
  * 如何触发遍历 通过二叉树的根结点触发就行
  * 1。三种方式遍历
  * 2。三种方式查找结点
+ * 3。删除结点
  */
 public class BinaryTree {
     private HeroNode root;
@@ -69,13 +70,31 @@ public class BinaryTree {
     }
 
     /**
-     * 后序查找
+     * 3 后序查找
      */
     public HeroNode afterSearch(Integer no) {
         if (this.root != null) {
             return this.root.afterSerach(no);
         }
         return null;
+    }
+
+    /**
+     * 删除结点
+     */
+    public void deleteNode(int no) {
+        // 空树
+        if (this.root == null){
+            System.out.println("是一颗空树");
+            return;
+        }
+        // 根结点就是要删除的结点
+        if (this.root.getNumber() == no){
+            this.root = null;
+            return;
+        }
+        // 根结点不是要删除的结点
+        this.root.deleteNode(no);
     }
 
 

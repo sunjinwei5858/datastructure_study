@@ -5,7 +5,12 @@ package com.sunjinwei.tree;
  * 一 遍历：前序 中序 后序 关键看什么时候输出父结点
  * 前序遍历 中序遍历 后序遍历
  * <p>
- * 二 查找：前序 中序 后序
+ * 二 查找：
+ * 前序 中序 后序
+ * <p>
+ * 三 删除：
+ * 如果是叶子结点，直接删除
+ * 如果不是叶子结点 那么删除该子树
  */
 public class HeroNode {
 
@@ -175,23 +180,49 @@ public class HeroNode {
             result = this.left.afterSerach(no);
         }
         // 如果通过左子节点递归查找已经找到，则直接返回，
-        if (result !=null){
+        if (result != null) {
             return result;
         }
         // 如果当前节点的右子节点不为空，则递归查找
-        if (this.right != null){
+        if (this.right != null) {
             result = this.right.afterSerach(no);
         }
         // 如果通过右子节点递归找到，则直接返回
-        if (result != null){
+        if (result != null) {
             return result;
         }
         System.out.println(this);
         // 如果当前节点就是要找的节点，则直接返回
-        if (this.number == no){
+        if (this.number == no) {
             return this;
         }
         return result;
+    }
+
+    /**
+     * 删除结点：
+     * 关键：因为我们的二叉树是单向的，所以我们是判断当前结点的子结点是否需要删除结点，而不能去判断 当前这个结点是不是需要删除结点.
+     */
+    public void deleteNode(int no) {
+        // 1 如果当前结点的左子结点不为空，并且左子结点 就是要删除结点，就将 this.left = null; 并且就返回 (结束递归删除)
+        if (this.left != null && this.left.number == no) {
+            this.left = null;
+            return;
+        }
+        // 2 如果当前结点的右子结点不为空，并且右子结点 就是要删除结点，就将 this.right= null ;并且就返回 (结束递归删除)
+        if (this.right != null && this.right.number == no) {
+            this.right = null;
+            return;
+        }
+        // 3 如果第1和第2步没有删除结点，那么我们就需要向左子树进行递归删除
+        if (this.left != null) {
+            this.left.deleteNode(no);
+        }
+        // 4 如果第3步也没有删除结点，则应当向右子树进行递归删除.
+        if (this.right != null) {
+            this.right.deleteNode(no);
+        }
+
     }
 
 }

@@ -70,6 +70,14 @@ public class BinaryTreeDemo {
         HeroNode result03 = binaryTree.afterSearch(5);
         System.out.println("找到了："+result03);
 
+        System.out.println("============开始删除结点");
+        /**
+         * 删除no为5的结点
+         */
+        binaryTree.deleteNode(1);
+        // 删除完之后进行后序遍历
+        binaryTree.preOrder();
+
 
     }
 }
