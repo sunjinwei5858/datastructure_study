@@ -1,4 +1,4 @@
-package com.sunjinwei.tree;
+package com.sunjinwei.tree.binary;
 
 /**
  * 创建树结点对象

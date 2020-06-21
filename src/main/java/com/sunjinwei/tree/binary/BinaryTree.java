@@ -1,4 +1,4 @@
-package com.sunjinwei.tree;
+package com.sunjinwei.tree.binary;
 
 /**
  * 二叉树对象
