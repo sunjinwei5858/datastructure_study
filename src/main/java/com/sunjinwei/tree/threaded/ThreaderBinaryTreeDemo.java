@@ -34,6 +34,10 @@ public class ThreaderBinaryTreeDemo {
         System.out.println(node5.getRight());
 
 
+        System.out.println("======线索化进行遍历");
+        threaderBinaryTree.midThreadedList();
+
+
     }
 
 }

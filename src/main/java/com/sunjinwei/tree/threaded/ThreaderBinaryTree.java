@@ -18,6 +18,9 @@ public class ThreaderBinaryTree {
         this.root = root;
     }
 
+    public ThreaderBinaryTree() {
+    }
+
     /**
      * 编写对二叉树进行中序线索化的方法 中序：左子树 结点 右子树
      *
@@ -50,6 +53,36 @@ public class ThreaderBinaryTree {
 
         // 3线索化右子树
         threadedNode(node.getRight());
+
+    }
+
+    /**
+     * 中序遍历线索二叉树：
+     * 遍历线索化二叉树 由于各个结点指向有变化，left和right都有变动，所以不能使用之前的遍历方式来遍历
+     * 各个节点可以通过线型方式遍历，因此无需使用递归方式，这样也提高了遍历的效率
+     */
+    public void midThreadedList() {
+        // 定义一个变量，存储当前遍历的结点，从 root 开始
+        HeroNode node = root;
+        while (node != null) {
+            // 循环的找到 leftType == 1 的结点，第一个找到就是 8 结点
+            // 后面随着遍历而变化,因为当 leftType==1 时，说明该结点是按照线索化 处理后的有效结点
+            while (node.getLeftType() == 0) {
+                // 如果leftType==0 那么就一直找下去 直到找到跳出循环找到leftType=1的结点 就是 8 结点 然后输出即可
+                node = node.getLeft();
+            }
+            // 跳出了上面的while循环 那么就打印当前这个结点
+            System.out.println(node);
+            // 如果当前结点的右指针指向的是后继结点,就一直输出
+            while (node.getRightType() == 1) {
+                // 获取到当前结点的后继结点
+                node = node.getRight();
+                System.out.println(node);
+            }
+
+            node = node.getRight();
+        }
+
 
     }
 
