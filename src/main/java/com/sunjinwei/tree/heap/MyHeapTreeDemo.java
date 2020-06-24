@@ -31,6 +31,9 @@ public class MyHeapTreeDemo {
 
     /**
      * 堆排序
+     *  1将原来数组构造成大顶堆--调用heapInsert方法 上升
+     *  2将树的根结点和数组最末尾的元素进行交换--调用swap方法 交换元素
+     *  3将剩余的树构造成大顶堆--调用heapify方法 下沉
      *
      * @param arr
      */
@@ -42,7 +45,7 @@ public class MyHeapTreeDemo {
             // 2 将顶端的数与末尾的数交换，此时，末尾的数为最大值，剩余待排序数组个数为n-1
             // 顶端也就是根结点是最大的，与最大索引处的值进行交换
             swap(arr, 0, size - 1);
-            // 将剩余的数构造成大根堆 也就是size-1
+            // 3 将剩余的数构造成大根堆 因为每次交换都是根结点与固定值前一位交换
             size--;
             heapify(arr, 0, size);
         }
@@ -50,7 +53,7 @@ public class MyHeapTreeDemo {
 
     /**
      * 构造大顶堆 通过新插入的数上升
-     *
+     * 大顶端性质：父结点大于左右子结点
      * @param arr
      */
     public static void heapInsert(int[] arr) {
@@ -59,7 +62,7 @@ public class MyHeapTreeDemo {
             int currentIndex = i;
             // 父结点的索引
             int fatherIndex = (currentIndex - 1) / 2;
-            // 如果当前插入的值大于父结点的值 那么就进行交换
+            // 如果当前插入的值大于父结点的值 那么就进行交换 这里不需要进行左还是右子结点的判断 只要当前结点大于父结点 就需要进行交换
             // 然后继续和上面的父结点进行比较 直到不大于父结点 则退出循环
             while (arr[currentIndex] > arr[fatherIndex]) {
                 swap(arr, currentIndex, fatherIndex);

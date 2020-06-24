@@ -18,7 +18,7 @@ public class HeapTreeDemo {
     public static void main(String[] args) {
         int arr[] = {4, 6, 8, 5, 9};
         heapSort(arr);
-        System.out.println(Arrays.toString(arr));
+        System.out.println("排序后的数组为："+Arrays.toString(arr));
 
     }
 
@@ -47,21 +47,25 @@ public class HeapTreeDemo {
             adjustHeap(arr, i, arr.length);
         }
 
+        System.out.println("第一次构造大顶堆： " + Arrays.toString(arr));
+
         /**
          * 2 进行排序
          *  将堆顶元素与最末元素进行交换 将最大元素沉到最底;
          *  重新调整结构 使其满足堆结构 然后继续交换
          */
-        int temp = 0;
         for (int j = arr.length - 1; j > 0; j--) {
-            temp = arr[j];
-            arr[j] = arr[0];
-            arr[0] = temp;
-
+            swap(arr, 0, j);
             // 重新调整
             adjustHeap(arr, 0, j);
         }
 
+    }
+
+    public static void swap(int[] arr, int index01, int index02) {
+        int temp = arr[index01];
+        arr[index01] = arr[index02];
+        arr[index02] = temp;
     }
 
     /**
