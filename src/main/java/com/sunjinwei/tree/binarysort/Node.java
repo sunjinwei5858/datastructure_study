@@ -42,6 +42,59 @@ public class Node {
         this.right = right;
     }
 
+
+    /**
+     * 根据value值查找节点, 通过二分查找的方式 不需要和原来的前序查找 中序查找 后序查找的方式那样查找了
+     */
+    public Node searchNode(int value) {
+        // 如果值等于当前节点
+        if (value == this.value) {
+            return this;
+        }
+        // 如果值小于当前节点的值 那么向左进行查找
+        else if (value < this.value) {
+            // 需要判断左子树不能为空情况
+            if (this.left != null) {
+                return this.left.searchNode(value);
+            } else {
+                return null;
+            }
+        }
+        // 如果值大于当前节点的值 那么向右进行查找
+        else if (value > this.value) {
+            if (this.right != null) {
+                return this.right.searchNode(value);
+            } else {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 根据节点查找当前节点的父节点
+     */
+    public Node searchParent(int value) {
+        // 如果当前节点的左子节点的值等于value或者右子节点的值等于value
+        if ((this.left != null && this.left.value == value) || (this.right != null && this.right.value == value)) {
+            return this;
+        }
+
+        // 如果value小于当前节点的value 并且左子树不为空 那么进行递归查找
+        if (this.value > value && this.left != null) {
+            return this.left.searchParent(value);
+        }
+
+        // 如果value小于当前节点的value 并且左子树不为空 那么进行递归查找
+        if (this.value < value && this.right != null) {
+            return this.right.searchParent(value);
+        }
+
+        // 最后一种情况 没有父节点
+        return null;
+
+    }
+
     /**
      * 添加元素
      */

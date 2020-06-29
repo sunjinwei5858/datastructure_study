@@ -27,6 +27,28 @@ public class BinarySortTree {
     }
 
     /**
+     * 查找节点
+     */
+    public Node serach(int value) {
+        if (root == null) {
+            return null;
+        } else {
+            return root.searchNode(value);
+        }
+    }
+
+    /**
+     * 查找父节点
+     */
+    public Node searchParent(Integer value) {
+        if (root == null) {
+            return null;
+        } else {
+            return root.searchParent(value);
+        }
+    }
+
+    /**
      * 将元素添加到树中
      */
     public void add(Node node) {
