@@ -58,30 +58,41 @@ public class BinarySortTree {
          * 如果不用为了排序 那么直接根据普通的左子树接上或者右子树接上即可。
          */
         else if (targetNode.getLeft() != null && targetNode.getRight() != null) {
-            // 查找该节点的左子树中最大的节点的值
             int nodeMin = delRightNodeMin(targetNode.getRight());
             targetNode.setValue(nodeMin);
-
         }
         /**
          * 2.删除非叶子节点 删除只有一颗子树的节点.
          *思路：
          * 1。判断target的子树是左子还是右子
          * 2。如果是左子，那么parent的left指向该左子；如果是右子 那么parent的right指向该右子
+         * 注意：如果此时只有两个节点：一个根节点+一个左子节点
+         * 此时 删除根节点 根节点是没有parent的 所以这里需要分情况
+         * 如果是删除根节点 那么删除根节点之后, 就只剩下一个节点，此时root节点应该指向左子节点
+         * 如果不是删除根节点 那么目标节点的左子节点
          */
         else {
             // 如果target的左子节点不为空
             if (targetNode.getLeft() != null) {
-                if (parentNode.getLeft().getValue() == value) {
-                    parentNode.setLeft(targetNode.getLeft());
+                if (parentNode != null) {
+                    if (parentNode.getLeft().getValue() == value) {
+                        parentNode.setLeft(targetNode.getLeft());
+                    } else {
+                        parentNode.setRight(targetNode.getLeft());
+                    }
                 } else {
-                    parentNode.setRight(targetNode.getLeft());
+                    root = targetNode.getLeft();
                 }
             } else { // 如果target的左子节点不为空
-                if (parentNode.getLeft().getValue() == value) {
-                    parentNode.setLeft(targetNode.getLeft());
+                if (parentNode != null) {
+                    if (parentNode.getLeft().getValue() == value) {
+                        parentNode.setLeft(targetNode.getLeft());
+                    } else {
+                        parentNode.setRight(targetNode.getRight());
+                    }
+
                 } else {
-                    parentNode.setRight(targetNode.getRight());
+                    root = targetNode.getRight();
                 }
             }
         }
@@ -100,7 +111,7 @@ public class BinarySortTree {
     }
 
     /**
-     * 删除以node为根节点的左子树中的最大节点的值
+     * 删除以node为根节点的右子树中的最小节点的值
      */
     public int delRightNodeMin(Node node) {
         Node temp = node;
