@@ -1,5 +1,7 @@
 package com.sunjinwei.sort;
 
+import com.sunjinwei.utils.SortUtils;
+
 import java.util.Arrays;
 
 /**
@@ -36,36 +38,10 @@ public class SelectionDemo {
             Integer minIndex = i;
             // 内存循环从i+1处开始进行比较 i+1~length
             for (int j = i + 1; j < arr.length; j++) {
-                if (handlerMinAndMax(arr[minIndex], arr[j])) {
-                    exchangeIndex(arr, minIndex, j);
+                if (SortUtils.handlerMinAndMax(arr[minIndex], arr[j])) {
+                    SortUtils.exchangeIndex(arr, minIndex, j);
                 }
             }
         }
-    }
-
-    /**
-     * 进行比较两个数大小
-     *
-     * @param a
-     * @param b
-     * @return 大于0 说明a>b
-     */
-    public static Boolean handlerMinAndMax(Integer a, Integer b) {
-        return a.compareTo(b) > 0;
-    }
-
-    /**
-     * 进行替换
-     *
-     * @param arr
-     * @param minIndex
-     * @param maxIndex
-     */
-    public static void exchangeIndex(Integer[] arr, Integer minIndex, Integer maxIndex) {
-        Integer temp;
-        temp = arr[minIndex];
-        Integer min = arr[maxIndex];
-        arr[minIndex] = min;
-        arr[maxIndex] = temp;
     }
 }

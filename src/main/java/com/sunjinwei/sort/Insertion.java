@@ -1,5 +1,7 @@
 package com.sunjinwei.sort;
 
+import com.sunjinwei.utils.SortUtils;
+
 import java.util.Arrays;
 
 /**
@@ -25,8 +27,8 @@ public class Insertion {
         // 第二次插入 将索引2和索引1处的进行比较 如果大于的话 那么进行交换 然后索引1和索引0进行比较 如果大于 进行交换；如果小于0 那么break
         for (int i = 1; i < arr.length; i++) {
             for (int j = i; j > 0; j--) {
-                if (handlerMinAndMax(arr[j - 1], arr[j])) {
-                    exchangeIndex(arr, j - 1, j);
+                if (SortUtils.handlerMinAndMax(arr[j - 1], arr[j])) {
+                    SortUtils.exchangeIndex(arr, j - 1, j);
                 } else {
                     break;
                 }
@@ -35,29 +37,4 @@ public class Insertion {
 
     }
 
-    /**
-     * 进行比较两个数大小
-     *
-     * @param a
-     * @param b
-     * @return 大于0 说明a>b
-     */
-    public static Boolean handlerMinAndMax(Integer a, Integer b) {
-        return a.compareTo(b) > 0;
-    }
-
-    /**
-     * 进行替换
-     *
-     * @param arr
-     * @param minIndex
-     * @param maxIndex
-     */
-    public static void exchangeIndex(Integer[] arr, Integer minIndex, Integer maxIndex) {
-        Integer temp;
-        temp = arr[minIndex];
-        Integer min = arr[maxIndex];
-        arr[minIndex] = min;
-        arr[maxIndex] = temp;
-    }
 }

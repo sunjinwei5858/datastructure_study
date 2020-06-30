@@ -1,5 +1,7 @@
 package com.sunjinwei.sort;
 
+import com.sunjinwei.utils.SortUtils;
+
 import java.util.Arrays;
 
 /**
@@ -44,8 +46,8 @@ public class MaoPaoDemo {
         for (int i = 0; i < arr.length - 1; i++) {
             // 内层循环 因为每次都会将最大的数排在最右边 所以第二趟都会比第一趟少一次 第三趟会比第二趟少一次
             for (int j = 0; j < arr.length - 1 - i; j++) {
-                if (handlerMinAndMax(arr[j], arr[j + 1])) {
-                    exchangeIndex(arr, j, j + 1);
+                if (SortUtils.handlerMinAndMax(arr[j], arr[j + 1])) {
+                    SortUtils.exchangeIndex(arr, j, j + 1);
                 }
             }
         }
@@ -61,40 +63,13 @@ public class MaoPaoDemo {
         int length = arr.length;
         while (length > 1) {
             for (int i = 0; i < arr.length - 1; i++) {
-                if (handlerMinAndMax(arr[i], arr[i + 1])) {
-                    exchangeIndex(arr, i, i + 1);
+                if (SortUtils.handlerMinAndMax(arr[i], arr[i + 1])) {
+                    SortUtils.exchangeIndex(arr, i, i + 1);
                 }
             }
             length--;
         }
     }
 
-
-    /**
-     * 进行比较两个数大小
-     * 如果a>b 为true；如果a<b 为false
-     *
-     * @param a
-     * @param b
-     * @return 大于0 说明a>b
-     */
-    public static Boolean handlerMinAndMax(Integer a, Integer b) {
-        return a.compareTo(b) > 0;
-    }
-
-    /**
-     * 进行替换
-     *
-     * @param arr
-     * @param minIndex
-     * @param maxIndex
-     */
-    public static void exchangeIndex(Integer[] arr, Integer minIndex, Integer maxIndex) {
-        Integer temp;
-        temp = arr[minIndex];
-        Integer min = arr[maxIndex];
-        arr[minIndex] = min;
-        arr[maxIndex] = temp;
-    }
 
 }
