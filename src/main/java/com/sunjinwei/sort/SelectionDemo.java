@@ -33,15 +33,16 @@ public class SelectionDemo {
      * @param arr
      */
     public static void sort(Integer[] arr) {
-        // 外层循环 总共要经过 N-1 轮比较 最后一个数不需要进行比较了 所以是n-1
+        // 只需要比较length-1次
         for (int i = 0; i < arr.length - 1; i++) {
-            Integer minIndex = i;
-            // 内存循环从i+1处开始进行比较 i+1~length
+            int minIndex = i;
+            // 找出最小值
             for (int j = i + 1; j < arr.length; j++) {
-                if (SortUtils.handlerMinAndMax(arr[minIndex], arr[j])) {
-                    SortUtils.exchangeIndex(arr, minIndex, j);
+                if (arr[minIndex] > arr[j]) {
+                    minIndex = j;
                 }
             }
+            SortUtils.exchangeIndex(arr, minIndex, i);
         }
     }
 }
