@@ -58,7 +58,8 @@ public class BinarySortTree {
          * 如果不用为了排序 那么直接根据普通的左子树接上或者右子树接上即可。
          */
         else if (targetNode.getLeft() != null && targetNode.getRight() != null) {
-            int nodeMin = delLeftNodeMin(targetNode);
+            // 查找该节点的左子树中最大的节点的值
+            int nodeMin = delRightNodeMin(targetNode.getRight());
             targetNode.setValue(nodeMin);
 
         }
@@ -89,10 +90,22 @@ public class BinarySortTree {
     /**
      * 删除以node为根节点的左子树中的最大节点的值
      */
-    public int delLeftNodeMin(Node node) {
+    public int delLeftNodeMax(Node node) {
         Node temp = node;
         while (temp.getRight() != null) {
             temp = temp.getRight();
+        }
+        deleteNode(temp.getValue());
+        return temp.getValue();
+    }
+
+    /**
+     * 删除以node为根节点的左子树中的最大节点的值
+     */
+    public int delRightNodeMin(Node node) {
+        Node temp = node;
+        while (temp.getLeft() != null) {
+            temp = temp.getLeft();
         }
         deleteNode(temp.getValue());
         return temp.getValue();
