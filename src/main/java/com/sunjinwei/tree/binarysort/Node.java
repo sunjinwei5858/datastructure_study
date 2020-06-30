@@ -67,8 +67,10 @@ public class Node {
             } else {
                 return null;
             }
+        } else {
+            return null;
         }
-        return null;
+
     }
 
     /**
@@ -78,21 +80,19 @@ public class Node {
         // 如果当前节点的左子节点的值等于value或者右子节点的值等于value
         if ((this.left != null && this.left.value == value) || (this.right != null && this.right.value == value)) {
             return this;
+        } else {
+            // 如果value小于当前节点的value 并且左子树不为空 那么进行递归查找
+            if (this.value > value && this.left != null) {
+                return this.left.searchParent(value);
+            }
+            // 如果value小于当前节点的value 并且左子树不为空 那么进行递归查找
+            else if (this.value < value && this.right != null) {
+                return this.right.searchParent(value);
+            } else {
+                // 最后一种情况 没有父节点
+                return null;
+            }
         }
-
-        // 如果value小于当前节点的value 并且左子树不为空 那么进行递归查找
-        if (this.value > value && this.left != null) {
-            return this.left.searchParent(value);
-        }
-
-        // 如果value小于当前节点的value 并且左子树不为空 那么进行递归查找
-        if (this.value < value && this.right != null) {
-            return this.right.searchParent(value);
-        }
-
-        // 最后一种情况 没有父节点
-        return null;
-
     }
 
     /**

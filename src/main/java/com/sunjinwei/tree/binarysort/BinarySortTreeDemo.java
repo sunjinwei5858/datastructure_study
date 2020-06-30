@@ -9,7 +9,11 @@ public class BinarySortTreeDemo {
         }
         // 测试一把 中序遍历
         binarySortTree.middleSort(); // 1 2 3 5 7 9 10 12
+        System.out.println("删除节点后=======");
+        // 删除节点
+        binarySortTree.deleteNode(3);
 
+        binarySortTree.middleSort(); // 3 5 7 9 10 12
 
 
     }
