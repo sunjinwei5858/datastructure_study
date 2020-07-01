@@ -42,11 +42,11 @@ public class MaoPaoDemo {
      * @param arr
      */
     public static void sort01(Integer[] arr) {
-        // 外层循环 控制趟数 length-1次
+        // 外层循环  只需要比较length-1次
         for (int i = 0; i < arr.length - 1; i++) {
             // 内层循环 因为每次都会将最大的数排在最右边 所以第二趟都会比第一趟少一次 第三趟会比第二趟少一次
             for (int j = 0; j < arr.length - 1 - i; j++) {
-                if (SortUtils.handlerMinAndMax(arr[j], arr[j + 1])) {
+                if (arr[j] > arr[j + 1]) {
                     SortUtils.exchangeIndex(arr, j, j + 1);
                 }
             }
@@ -59,11 +59,11 @@ public class MaoPaoDemo {
      * @param arr
      */
     public static void sort02(Integer[] arr) {
-        // 最后一个无需进行比较 所以while循环 如果只剩下最后一个元素 那么无需进行比较 跳出循环
+        // 最后一个无需进行比较 只需要比较length-1次 所以while循环 如果只剩下最后一个元素 那么无需进行比较 跳出循环
         int length = arr.length;
         while (length > 1) {
             for (int i = 0; i < arr.length - 1; i++) {
-                if (SortUtils.handlerMinAndMax(arr[i], arr[i + 1])) {
+                if (arr[i] > arr[i + 1]) {
                     SortUtils.exchangeIndex(arr, i, i + 1);
                 }
             }
