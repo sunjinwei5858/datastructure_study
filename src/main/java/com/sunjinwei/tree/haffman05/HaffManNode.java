@@ -1,4 +1,4 @@
-package com.sunjinwei.tree.haffman;
+package com.sunjinwei.tree.haffman05;
 
 /**
  * 结点 实现排序接口 重写compareTo方法

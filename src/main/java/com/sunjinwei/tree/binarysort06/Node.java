@@ -1,4 +1,4 @@
-package com.sunjinwei.tree.binarysort;
+package com.sunjinwei.tree.binarysort06;
 
 /**
  * 二叉排序树的结点

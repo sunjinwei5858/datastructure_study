@@ -1,4 +1,4 @@
-package com.sunjinwei.tree.binarysort;
+package com.sunjinwei.tree.binarysort06;
 
 public class BinarySortTreeDemo {
     public static void main(String[] args) {

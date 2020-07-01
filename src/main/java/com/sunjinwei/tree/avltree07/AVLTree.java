@@ -1,14 +1,11 @@
-package com.sunjinwei.tree.binarysort;
+package com.sunjinwei.tree.avltree07;
 
 /**
- * 二叉排序树 特点：
- * 1。左子结点的值小于当前结点
- * 2。右子结点的值大于当前结点
- * 3。如果和当前结点的值相等，那么插入到左子和右子都可以
- * <p>
- * 增 删 查
+ * 平衡二叉树 建立在二叉排序树上 特点：
+ * 1.获取根节点的高度
+ * 2。
  */
-public class BinarySortTree {
+public class AVLTree {
     private Node root;
 
     public Node getRoot() {
@@ -19,13 +16,12 @@ public class BinarySortTree {
         this.root = root;
     }
 
-    public BinarySortTree(Node root) {
+    public AVLTree(Node root) {
         this.root = root;
     }
 
-    public BinarySortTree() {
+    public AVLTree() {
     }
-
 
     /**
      * 根据value值删除元素,删除节点其实分三种情况

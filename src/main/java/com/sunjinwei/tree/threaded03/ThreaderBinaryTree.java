@@ -1,4 +1,4 @@
-package com.sunjinwei.tree.threaded;
+package com.sunjinwei.tree.threaded03;
 
 /**
  * 实现了中序线索化功能的二叉树，其实就是对结点进行线索化

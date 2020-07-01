@@ -1,4 +1,4 @@
-package com.sunjinwei.tree.arrbinary;
+package com.sunjinwei.tree.arrbinary01;
 
 import java.util.Arrays;
 

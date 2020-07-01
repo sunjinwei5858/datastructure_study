@@ -1,4 +1,4 @@
-package com.sunjinwei.tree.binary;
+package com.sunjinwei.tree.binary02;
 
 /**
  * 测试二叉树的遍历

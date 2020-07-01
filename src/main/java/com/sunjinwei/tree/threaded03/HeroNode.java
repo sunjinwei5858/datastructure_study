@@ -1,4 +1,4 @@
-package com.sunjinwei.tree.binary;
+package com.sunjinwei.tree.threaded03;
 
 /**
  * 创建树结点对象
@@ -11,6 +11,8 @@ package com.sunjinwei.tree.binary;
  * 三 删除：
  * 如果是叶子结点，直接删除
  * 如果不是叶子结点 那么删除该子树
+ * <p>
+ * 四 线索化二叉树 中序线索化
  */
 public class HeroNode {
 
@@ -21,6 +23,18 @@ public class HeroNode {
     private HeroNode left;
     // 右子树 默认为null
     private HeroNode right;
+
+    /**
+     * 线索二叉树：结点指向标识
+     * 如果为0 指向左子树；如果为1 指向前驱结点
+     */
+    private int leftType;
+
+    /**
+     * 线索二叉树：结点指向标识
+     * 如果为0 指向右子树； 如果为1 指向后继结点
+     */
+    private int rightType;
 
     public HeroNode(int number, String name) {
         this.number = number;
@@ -57,6 +71,22 @@ public class HeroNode {
 
     public void setRight(HeroNode right) {
         this.right = right;
+    }
+
+    public int getLeftType() {
+        return leftType;
+    }
+
+    public void setLeftType(int leftType) {
+        this.leftType = leftType;
+    }
+
+    public int getRightType() {
+        return rightType;
+    }
+
+    public void setRightType(int rightType) {
+        this.rightType = rightType;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.sunjinwei.tree.threaded;
+package com.sunjinwei.tree.threaded03;
 
 /**
  * 测试中序线索化
