@@ -5,7 +5,9 @@ public class AVLTreeDemo {
 
         //int[] arr = {4, 3, 6, 5, 7, 8}; // 只需要一次左旋的数组
 
-        int[] arr = {10, 12, 8, 9, 7, 6}; // 只需要一次右旋的数组
+        //int[] arr = {10, 12, 8, 9, 7, 6}; // 只需要一次右旋的数组
+
+        int[] arr = {10, 11, 7, 6, 8, 9};
 
         AVLTree binarySortTree = new AVLTree();
         for (int value : arr) {

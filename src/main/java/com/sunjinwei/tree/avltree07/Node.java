@@ -161,7 +161,7 @@ public class Node {
     }
 
     /**
-     * 添加元素+判断高度左旋/右旋+
+     * 添加元素+判断高度是左旋/右旋+还是先左后右，还是先右后左
      */
     public void addNode(Node node) {
         int currentValue = this.getValue();
@@ -185,11 +185,23 @@ public class Node {
         // 判断左子树和右子树的高度
         // 如果右边更高 那么进行左旋
         if (rightHeight() - leftHeight() > 1) {
+            // 需要先右旋 再左旋的条件：右子树的左子树高度大于它的右子树高度
+            if (right != null && right.leftHeight() > right.rightHeight()) {
+                // 先右旋
+                right.rightRotate();
+            }
+            // 再左旋
             leftRotate();
             return; // !!!
         }
         // 如果左边更高 那么进行右旋
         if (leftHeight() - rightHeight() > 1) {
+            // 需要先左旋，后右旋的条件：左子树的右子树高度大于它的左子树的高度
+            if (left != null && left.rightHeight() > left.leftHeight()) {
+                // 先左旋
+                left.leftRotate();
+            }
+            // 再右旋
             rightRotate();
         }
     }
