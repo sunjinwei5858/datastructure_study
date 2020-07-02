@@ -2,9 +2,10 @@ package com.sunjinwei.tree.avltree07;
 
 public class AVLTreeDemo {
     public static void main(String[] args) {
-
-        int[] arr = {4, 3, 6, 5, 7, 8};
         //int[] arr = {10, 11, 7, 6, 8, 9};
+
+        int[] arr = {4, 3, 6, 5, 7, 8}; // 需要左旋数组
+
         AVLTree binarySortTree = new AVLTree();
         for (int value : arr) {
             binarySortTree.add(new Node(value));

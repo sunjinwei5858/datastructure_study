@@ -44,6 +44,43 @@ public class Node {
         this.right = right;
     }
 
+
+    /**
+     * 左旋方法：
+     * 1。创建一个新结点，value为当前结点的value。
+     * 2。新结点的左子树设置为当前结点的左子树
+     * 3.新结点的右子树设置为当前结点右子树的左子树
+     * 4.当前结点的值换为它右子结点的值
+     * 5.当前结点的右子树换为它右子树的右子树
+     * 6.当前结点的左子树换为新结点
+     */
+    public void leftRotate() {
+        Node newNode = new Node(value);
+        newNode.left = left;
+        newNode.right = right.left;
+        value = right.value;
+        right = right.right;
+        left = newNode;
+    }
+
+    /**
+     * 右旋方法：
+     * 1.创建一个新的结点，value为当前结点的value
+     * 2。新结点的左子树->当前结点的左子树的右子树
+     * 3。新结点的右子树->当前结点的右子树
+     * 4。当前结点的value->当前结点左子树的value
+     * 5。当前结点的右子树->新结点
+     * 6.当前结点的左子树->当前结点左子树的左子树
+     */
+    public void rightRotate() {
+        Node newNode = new Node(value);
+        newNode.left = left.right;
+        newNode.right = right;
+        value = left.value;
+        left = left.left;
+        right = newNode;
+    }
+
     /**
      * 获取左子节点的高度
      */
