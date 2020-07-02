@@ -3,7 +3,7 @@ package com.sunjinwei.tree.avltree07;
 /**
  * 平衡二叉树：
  * 1。获取节点的高度
- * 2。
+ * 2。添加完元素后进行判断高度 进行左旋和右旋 -->单旋转
  */
 public class Node {
 
@@ -43,7 +43,6 @@ public class Node {
     public void setRight(Node right) {
         this.right = right;
     }
-
 
     /**
      * 左旋方法：
@@ -162,7 +161,7 @@ public class Node {
     }
 
     /**
-     * 添加元素
+     * 添加元素+判断高度左旋/右旋+
      */
     public void addNode(Node node) {
         int currentValue = this.getValue();
@@ -183,7 +182,16 @@ public class Node {
                 this.right.addNode(node);
             }
         }
-
+        // 判断左子树和右子树的高度
+        // 如果右边更高 那么进行左旋
+        if (rightHeight() - leftHeight() > 1) {
+            leftRotate();
+            return; // !!!
+        }
+        // 如果左边更高 那么进行右旋
+        if (leftHeight() - rightHeight() > 1) {
+            rightRotate();
+        }
     }
 
     /**

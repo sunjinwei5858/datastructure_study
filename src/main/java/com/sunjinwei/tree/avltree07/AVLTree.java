@@ -1,9 +1,7 @@
 package com.sunjinwei.tree.avltree07;
 
 /**
- * 平衡二叉树 建立在二叉排序树上 特点：
- * 1.获取根节点的高度
- * 2。
+ * 平衡二叉树 建立在二叉排序树上
  */
 public class AVLTree {
     private Node root;
