@@ -74,6 +74,27 @@ public class Node {
     }
 
     /**
+     * 使用老方法
+     *
+     * @param value
+     * @return
+     */
+    public Node searchNodeOldMethods(int value) {
+        if (this == null) {
+            return null;
+        }
+        if (this.getValue() == value) {
+            return this;
+        }
+        if (this.getValue() > value) {
+            return this.right.searchNodeOldMethods(value);
+        } else {
+            return this.left.searchNodeOldMethods(value);
+        }
+    }
+
+
+    /**
      * 根据节点查找当前节点的父节点
      */
     public Node searchParent(int value) {

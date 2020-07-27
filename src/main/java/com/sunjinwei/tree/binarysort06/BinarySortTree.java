@@ -9,6 +9,7 @@ package com.sunjinwei.tree.binarysort06;
  * 增 删 查
  */
 public class BinarySortTree {
+
     private Node root;
 
     public Node getRoot() {
@@ -63,7 +64,7 @@ public class BinarySortTree {
         }
         /**
          * 2.删除非叶子节点 删除只有一颗子树的节点.
-         *思路：
+         * 思路：
          * 1。判断target的子树是左子还是右子
          * 2。如果是左子，那么parent的left指向该左子；如果是右子 那么parent的right指向该右子
          * 注意：如果此时只有两个节点：一个根节点+一个左子节点
@@ -90,7 +91,6 @@ public class BinarySortTree {
                     } else {
                         parentNode.setRight(targetNode.getRight());
                     }
-
                 } else {
                     root = targetNode.getRight();
                 }
