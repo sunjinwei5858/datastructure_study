@@ -6,12 +6,22 @@ package com.sunjinwei.algrithem.feibo;
  */
 public class FeiBoDemo01 {
     public static void main(String[] args) {
-        int fib = fib(5);
+        int fib = fib(0);
         System.out.println(fib);
 
     }
 
+    /**
+     * 情况 n >= 0
+     *
+     * @param n
+     * @return
+     */
     public static int fib(int n) {
+        if (n == 0) {
+            return 0;
+        }
+
         if (n == 1 || n == 2) {
             return 1;
         }
