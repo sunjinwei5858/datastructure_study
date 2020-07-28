@@ -12,9 +12,9 @@ public class SortUtils {
      * @param index01
      * @param index02
      */
-    public static void exchangeIndex(Integer[] arr, Integer index01, Integer index02) {
-        Integer temp = arr[index01];
-        Integer min = arr[index02];
+    public static void exchangeIndex(int[] arr, int index01, int index02) {
+        int temp = arr[index01];
+        int min = arr[index02];
         arr[index01] = min;
         arr[index02] = temp;
     }

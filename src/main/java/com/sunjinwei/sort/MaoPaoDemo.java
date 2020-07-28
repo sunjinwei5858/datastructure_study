@@ -15,7 +15,7 @@ public class MaoPaoDemo {
 
     public static void main(String[] args) {
         // 长度为5的数组 因为数组索引是从0开始 那么只需要n-1次外循环 内循环就是n-1-1次
-        Integer[] arr01 = {3, 1, 10, 7, 4, 3, 9, 2};
+        int[] arr01 = {3, 1, 10, 7, 4, 3, 9, 2};
 
         System.out.println("数组长度为：" + arr01.length);
 
@@ -25,7 +25,7 @@ public class MaoPaoDemo {
 
         System.out.println("======================");
 
-        Integer[] arr02 = {3, 1, 10, 7, 4, 3, 9, 2};
+        int[] arr02 = {3, 1, 10, 7, 4, 3, 9, 2};
 
         System.out.println("数组长度为：" + arr02.length);
 
@@ -41,7 +41,7 @@ public class MaoPaoDemo {
      *
      * @param arr
      */
-    public static void sort01(Integer[] arr) {
+    public static void sort01(int[] arr) {
         // 外层循环  只需要比较length-1次
         for (int i = 0; i < arr.length - 1; i++) {
             // 内层循环 因为每次都会将最大的数排在最右边 所以第二趟都会比第一趟少一次 第三趟会比第二趟少一次
@@ -58,7 +58,7 @@ public class MaoPaoDemo {
      *
      * @param arr
      */
-    public static void sort02(Integer[] arr) {
+    public static void sort02(int[] arr) {
         // 最后一个无需进行比较 只需要比较length-1次 所以while循环 如果只剩下最后一个元素 那么无需进行比较 跳出循环
         int length = arr.length;
         while (length > 1) {

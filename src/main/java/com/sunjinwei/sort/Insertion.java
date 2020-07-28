@@ -11,18 +11,18 @@ import java.util.Arrays;
 public class Insertion {
 
     public static void main(String[] args) {
-        Integer[] arr01 = {3, 1, 10, 7, 4};
+        int[] arr01 = {3, 1, 10, 7, 4};
         Insertion.sort01(arr01);
         System.out.println(Arrays.toString(arr01));
         System.out.println("=========================");
 
-        Integer[] arr02 = {3, 1, 10, 7, 4};
+        int[] arr02 = {3, 1, 10, 7, 4};
         Insertion.sort02(arr02);
         System.out.println(Arrays.toString(arr02));
     }
 
 
-    public static void sort01(Integer[] arr) {
+    public static void sort01(int[] arr) {
         // 外循环 假设第一个索引处的是排序好的
         // 索引从1开始 倒叙遍历
         // 第一次插入 将索引1和索引0处的进行比较 如果大于的话 那么进行交换 ；如果小于 那么不需要进行交换 索引1的比较交换结束
@@ -44,7 +44,7 @@ public class Insertion {
      *
      * @param arr
      */
-    public static void sort02(Integer[] arr) {
+    public static void sort02(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             if (arr[i] > arr[i + 1]) {
                 // 如果下一个元素小于当前元素 那么需要进行交换

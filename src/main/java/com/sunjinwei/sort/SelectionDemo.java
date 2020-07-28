@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class SelectionDemo {
     public static void main(String[] args) {
 
-        Integer[] arr = {3, 1, 10, 7, 2};
+        int[] arr = {3, 1, 10, 7, 2};
 
         SelectionDemo.sort(arr);
 
@@ -32,7 +32,7 @@ public class SelectionDemo {
      *
      * @param arr
      */
-    public static void sort(Integer[] arr) {
+    public static void sort(int[] arr) {
         // 只需要比较length-1次
         for (int i = 0; i < arr.length - 1; i++) {
             int minIndex = i;
