@@ -3,8 +3,10 @@ package com.sunjinwei.algrithem.feibo;
 /**
  * 斐波那契数列--最优的实现
  * 不需要使用递归，并且空间复杂为1
+ * 时间复杂度O(N)
+ * 空间复杂度O(1)
  */
-public class FeiBoDemo01 {
+public class FeiBoDemo004 {
     public static void main(String[] args) {
         int fib = fib(0);
         System.out.println(fib);
