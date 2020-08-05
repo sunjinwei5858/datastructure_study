@@ -13,9 +13,7 @@ import java.util.Arrays;
  * 实现：
  * 方法1：使用动态规划 将大问题进行拆解成一个小问题
  * <p>
- * <p>
  * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/coin-change
  */
 public class CoinChangeDemo01 {
     /**
@@ -31,7 +29,7 @@ public class CoinChangeDemo01 {
      * @param amount
      * @return
      */
-    public static int coinChange(int[] coins, int amount) {
+    public  int coinChange(int[] coins, int amount) {
         // 备忘录数组 记录
         int[] arr = new int[amount + 1];
         // 注意：因为要比较的是最小值，这个不可能的值就得赋值成为一个最大值
@@ -42,11 +40,13 @@ public class CoinChangeDemo01 {
                 // !!! 当前的面值肯定要大于
                 if (i - coin >= 0) {
                     // ！！！ 新状态的值要参考的值以前计算出来的「有效」状态值
+                    // 这种当前状态的问题可以转化成之前状态问题的，一般就是动态规划的套路
                     // 求 dp[11] 需要参考 dp[10] ，如果不能凑出来的话，dp[10] 应该等于一个不可能的值，可以设计为 11 + 1，也可以设计为 -1
                     arr[i] = Math.min(arr[i - coin] + 1, arr[i]);
                 }
             }
         }
+        // 只要有解，最小硬币数必然小于amount+1
         if (arr[amount] == amount + 1) {
             return -1;
         } else {
@@ -55,9 +55,10 @@ public class CoinChangeDemo01 {
     }
 
     public static void main(String[] args) {
+        CoinChangeDemo01 coinChangeDemo01 = new CoinChangeDemo01();
         int[] coins = {1, 2, 5};
         int amount = 11;
-        int coinChange = coinChange(coins, amount);
+        int coinChange = coinChangeDemo01.coinChange(coins, amount);
         System.out.println(coinChange);
     }
 
