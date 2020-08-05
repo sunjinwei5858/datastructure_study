@@ -6,21 +6,20 @@ import java.util.List;
 
 /**
  * 全排列--力扣46
- * 回溯算法框架
+ * 回溯算法框架 使用了深度优先遍历 dfs
  * 输入: [1,2,3]
  * 输出:
- * [
- * [1,2,3],
- * [1,3,2],
- * [2,1,3],
- * [2,3,1],
- * [3,1,2],
- * [3,2,1]
- * ]
+ * [1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]
+ * 从 [1, 2, 3] 到 [1, 3, 2] ，深度优先遍历是这样做的，从 [1, 2, 3] 回到 [1, 2] 的时候，
+ * 需要撤销刚刚已经选择的数 3，因为在这一层只有一个数 3 我们已经尝试过了，
+ * 因此程序回到上一层，需要撤销对 2 的选择，好让后面的程序知道，选择 3 了以后还能够选择 2。
  * <p>
+ * 这种在遍历的过程中，从深层结点回到浅层结点的过程中所做的操作就叫“回溯”。
+ * <p>
+ * 作者：liweiwei1419
+ * 链接：https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/
  * 来源：力扣（LeetCode）
- * 链接：https://leetcode-cn.com/problems/permutations
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
  */
 public class QuanPaiLieDemo01 {
 
@@ -35,8 +34,17 @@ public class QuanPaiLieDemo01 {
     private void backtrack(int[] nums, LinkedList<Integer> integers) {
         for (int i = 0; i < nums.length; i++) {
             if (integers.size() == nums.length) {
+                /**
+                 * integers 这个变量所指向的对象在递归的过程中只有一份，深度优先遍历完成以后，
+                 * 因为回到了根结点（因为我们之前说了，从深层结点回到浅层结点的时候，需要撤销之前的选择），
+                 * 因此 integers 这个变量回到根结点以后都为空。
+                 * 在 Java 中，因为都是值传递，对象类型变量在传参的过程中，复制的都是变量的地址.
+                 */
+                //results.add(integers);
+
                 // new LinkedList<>(integers) 其实就是addAll
-                results.add(new LinkedList<>(integers));
+                results.add(new ArrayList<>(integers));
+                results.add(integers);
                 return;
             }
             // 如果集合包含 那么跳过
