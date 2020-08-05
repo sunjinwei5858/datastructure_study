@@ -1,4 +1,4 @@
-package com.sunjinwei.algrithem.quanpailie;
+package com.sunjinwei.algrithem.quanpailie46;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

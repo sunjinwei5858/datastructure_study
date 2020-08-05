@@ -1,4 +1,4 @@
-package com.sunjinwei.algrithem.feibo;
+package com.sunjinwei.algrithem.feibo509;
 
 /**
  * 使用递归实现

@@ -1,4 +1,4 @@
-package com.sunjinwei.algrithem.coinchange;
+package com.sunjinwei.algrithem.coinchange322;
 
 import java.util.Arrays;
 

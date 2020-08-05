@@ -1,4 +1,4 @@
-package com.sunjinwei.algrithem.feibo;
+package com.sunjinwei.algrithem.feibo509;
 
 /**
  * 斐波那契额数列-使用备忘录实现,即使用数组进行存储n-f(n)
