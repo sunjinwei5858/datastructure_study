@@ -20,6 +20,14 @@ import java.util.List;
  * 链接：https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/
  * 来源：力扣（LeetCode）
  * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ * <p>
+ * 解决一个回溯问题，实际上就是一个决策树的遍历过程。你只需要思考 3 个问题：
+ * <p>
+ * 1、路径：也就是已经做出的选择。
+ * <p>
+ * 2、选择列表：也就是你当前可以做的选择
+ * <p>
+ * 3、结束条件：也就是到达决策树底层，无法再做选择的条件。
  */
 public class QuanPaiLieDemo01 {
 
@@ -31,9 +39,28 @@ public class QuanPaiLieDemo01 {
         return results;
     }
 
-    private void backtrack(int[] nums, LinkedList<Integer> integers) {
+    /**
+     * 框架：
+     * for 选择 in 选择列表:
+     * # 做选择
+     * 将该选择从选择列表移除
+     * 路径.add(选择)
+     * backtrack(路径, 选择列表)
+     * # 撤销选择
+     * 路径.remove(选择)
+     * 将该选择再加入选择列表
+     * <p>
+     * 路径：记录在 track 中
+     * 选择列表：nums 中不存在于 track 的那些元素
+     * 结束条件：nums 中的元素全都在 track 中出现
+     *
+     * @param nums  选择列表
+     * @param track 路径 记录在 track 中
+     */
+    private void backtrack(int[] nums, LinkedList<Integer> track) {
         for (int i = 0; i < nums.length; i++) {
-            if (integers.size() == nums.length) {
+            // 结束条件：也就是到达决策树底层，无法再做选择的条件。nums 中的元素全都在 track 中出现
+            if (track.size() == nums.length) {
                 /**
                  * integers 这个变量所指向的对象在递归的过程中只有一份，深度优先遍历完成以后，
                  * 因为回到了根结点（因为我们之前说了，从深层结点回到浅层结点的时候，需要撤销之前的选择），
@@ -43,20 +70,19 @@ public class QuanPaiLieDemo01 {
                 //results.add(integers);
 
                 // new LinkedList<>(integers) 其实就是addAll
-                results.add(new ArrayList<>(integers));
-                results.add(integers);
+                results.add(new ArrayList<>(track));
                 return;
             }
-            // 如果集合包含 那么跳过
-            if (integers.contains(nums[i])) {
+            // 选择列表：nums 中不存在于 track 的那些元素
+            if (track.contains(nums[i])) {
                 continue;
             }
             // 进行选择
-            integers.add(nums[i]);
+            track.add(nums[i]);
             // 进行递归
-            backtrack(nums, integers);
+            backtrack(nums, track);
             // 进行回溯 撤销
-            integers.removeLast();
+            track.removeLast();
         }
 
     }
