@@ -1,4 +1,4 @@
-package com.sunjinwei.algrithem.huisu.quanpailie46;
+package com.sunjinwei.algrithem.dfs;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -16,20 +16,13 @@ import java.util.List;
  * <p>
  * 这种在遍历的过程中，从深层结点回到浅层结点的过程中所做的操作就叫“回溯”。
  * <p>
- * 作者：liweiwei1419
- * 链接：https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/
- * 来源：力扣（LeetCode）
- * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
- * <p>
- * 解决一个回溯问题，实际上就是一个决策树的遍历过程。你只需要思考 3 个问题：
- * <p>
+ * 解决一个回溯问题，实际上就是一个决策树的遍历过程。
+ * 你只需要思考 3 个问题：
  * 1、路径：也就是已经做出的选择。
- * <p>
  * 2、选择列表：也就是你当前可以做的选择
- * <p>
  * 3、结束条件：也就是到达决策树底层，无法再做选择的条件。
  */
-public class QuanPaiLieDemo01 {
+public class QuanPaiLie46 {
 
     List<List<Integer>> results = new ArrayList<>();
 
@@ -67,8 +60,6 @@ public class QuanPaiLieDemo01 {
                  * 因此 integers 这个变量回到根结点以后都为空。
                  * 在 Java 中，因为都是值传递，对象类型变量在传参的过程中，复制的都是变量的地址.
                  */
-                //results.add(integers);
-
                 // new LinkedList<>(integers) 其实就是addAll
                 results.add(new ArrayList<>(track));
                 return;
@@ -88,7 +79,7 @@ public class QuanPaiLieDemo01 {
     }
 
     public static void main(String[] args) {
-        QuanPaiLieDemo01 quanPaiLieDemo01 = new QuanPaiLieDemo01();
+        QuanPaiLie46 quanPaiLieDemo01 = new QuanPaiLie46();
         int[] arr = {1, 2, 3};
         List<List<Integer>> lists = quanPaiLieDemo01.quanPaiLie(arr);
         for (List<Integer> list : lists) {
