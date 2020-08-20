@@ -1,4 +1,4 @@
-package com.sunjinwei.algrithem.minidepth111;
+package com.sunjinwei.algrithem.bfs.minidepth111;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -54,7 +54,6 @@ public class TreeMiniDepth {
         System.out.println(miniDepth);
     }
 }
-
 
 
 class TreeNode {

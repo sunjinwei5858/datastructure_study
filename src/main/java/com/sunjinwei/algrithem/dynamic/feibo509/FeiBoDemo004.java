@@ -1,4 +1,4 @@
-package com.sunjinwei.algrithem.feibo509;
+package com.sunjinwei.algrithem.dynamic.feibo509;
 
 /**
  * 斐波那契数列--最优的实现
