@@ -55,5 +55,14 @@ public class Demo589 {
         return result;
     }
 
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+
+        stack.push(222);
+
+        System.out.println(stack.pop());
+
+    }
+
 
 }
